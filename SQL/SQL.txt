@@ -1,0 +1,35 @@
+
+ 
+ 1 =>
+ 
+ select 
+	count(p.idProcesso) as NumeroProcessos,
+	s.dsStatus as DescricaoStatus
+	from tb_Processo p inner join tb_Status s
+	on p.idStatus = s.idStatus
+	group by p.idStatus, s.dsStatus
+	
+ 2 =>
+
+	select 
+		max (a.dtAndamento) as MaiorDataAndamento,
+		p.nroProcesso as NumeroProcesso
+		from tb_Processo p inner join tb_Andamento a
+		on p.idProcesso = a.idProcesso
+		where year(p.dtEncerramento) = 2013
+		group by a.dtAndamento, p.nroProcesso
+		
+ 3 =>
+
+    select dtEncerramento, count(*) 
+	from tb_Processo
+	group by dtEncerramento
+	having count(dtEncerramento) > 5
+	
+ 4 => 
+
+	011111 para numeros inteiros é a mesma coisa que 11111
+	ou seja, se for necessário manter os zeros, o melhor modo seria utilizar o campo como string
+	MAS
+	se realmente for necessário utilizar o campo como bigint:
+	select REPLICATE('0', 12-LEN(nroProcesso)) + RTRIM(nroProcesso) from tb_Processo
