@@ -1,0 +1,12 @@
+footer{
+    color: #00FFFF !important;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+.alinharADireita{
+    text-align: right;
+}

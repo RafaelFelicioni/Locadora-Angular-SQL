@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+  
+  .navbar {
+    text-align: center;
+    justify-content: center !important;
+  }

@@ -1,10 +1,45 @@
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
-<p>home works!</p>
+<div clas="card" id="cardTabela">
+    <div class="card-body">
+        <div class="row">
+              <div class="mat-elevation-z8 telaToda">
+          
+                <input class="aumentarCampo" matInput (keyup)="onSearchInput($event)" placeholder="Procure por qualquer campo...">
+          
+                <table mat-table [dataSource]="tableDataSrc" matSort class="mat-elevation-z8">
+                  <ng-container *ngFor="let col of tableCols">
+                    <ng-container matColumnDef="{{ col }}">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        {{ col | titlecase }}
+                      </th>
+                      <td mat-cell *matCellDef="let profile">{{ profile[col] }}</td>
+                    </ng-container>
+                  </ng-container>
+          
+                  <tr mat-header-row *matHeaderRowDef="tableCols"></tr>
+                  <tr mat-row *matRowDef="let row; columns: tableCols"></tr>
+                </table>
+          
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+              </div>
+          </div>
+    </div>
+</div>
+
+<div clas="card" id="cardGrafico">
+  <div class="mat-elevation-z8 telaToda ">
+    <div class="card-body ">
+      <div>
+        <label>
+          Gráfico de Aprendizado!
+        </label>
+        <google-chart #chart class="centralizarGrafico"
+        [title]="title"
+        [type]='myType'
+        [data]="data"
+        [columns]="chartColumns"
+        [options]="options"
+        [width]="width"
+        [height]="height">
+        </google-chart>
+  </div>
+</div>
